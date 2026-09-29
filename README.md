@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 3-Tier DevSecOps Project
 
 This repository contains a simple Node.js API and a React client used for a user management demo. Follow the steps below to get the project running locally.
@@ -29,3 +30,7 @@ This repository contains a simple Node.js API and a React client used for a user
 5. Open `http://localhost:3000` in your browser to use the application.
 
 The client now displays an animated banner welcoming you to **DevOps Shack**.
+=======
+# 3-Tier-DevOps-Project
+3-Tier-DevOps-Project
+>>>>>>> 8006aa7e48cd652973536cc1d99b38608938cc2e
