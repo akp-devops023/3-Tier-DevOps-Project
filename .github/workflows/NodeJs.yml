@@ -7,7 +7,7 @@ on:
 
 jobs:
   compile:
-    runs-on: ubuntu-24.04   # Pin runner to avoid ubuntu-latest migration issues
+    runs-on: ubuntu-24.04
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -20,9 +20,10 @@ jobs:
     - name: Frontend Compilation (Syntax Check)
       run: |
         cd client
+        npm ci
         for file in $(find . -name "*.js"); do
           echo "Checking $file"
-          node --check "$file" || exit 1
+          npx eslint "$file" || exit 1
         done
 
     - name: Backend Compilation
