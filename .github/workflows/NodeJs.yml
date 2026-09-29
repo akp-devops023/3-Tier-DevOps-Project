@@ -17,16 +17,14 @@ jobs:
       with:
         node-version: '24'
 
-    - name: Frontend Compilation (Syntax Check)
+    - name: Frontend Compilation (Lint JSX/JS)
       run: |
         cd client
         npm ci
-        for file in $(find . -name "*.js"); do
-          echo "Checking $file"
-          npx eslint "$file" || exit 1
-        done
+        # Run ESLint on all JS/JSX files
+        npx eslint . --ext .js,.jsx
 
-    - name: Backend Compilation
+    - name: Backend Compilation (Syntax Check)
       run: |
         cd api
         for file in $(find . -name "*.js"); do
