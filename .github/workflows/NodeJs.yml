@@ -24,3 +24,15 @@ jobs:
       run: |
         cd api
         find . -name "*.js" -exec node --check {} +
+  gitleaks-scan:
+    needs: compile
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Checkout gitleaks
+      uses: gitleaks/gitleaks-action@v2
+    - name: Gitleak Scan
+      run: |
+        gitleaks detect --source ./client --exit-code 1
+        gitleaks detect --source ./api --exit-code 1
